@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
-    "dev": "live-server src/index.html",
-    "compile:sass": "node-sass src/sass/main.scss src/css/styles.css --watch",
+    "server": "live-server --open=./dist",
+    "watch": "gulp watch",
+    "dev": "concurrently 'npm run watch' 'npm run server'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,11 +21,35 @@
   },
   "homepage": "https://github.com/pchertude34/javascript-tutoring-website#readme",
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "browserify": "^16.5.2",
+    "concurrently": "^5.3.0",
+    "globby": "^11.0.1",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-better-rollup": "^4.0.1",
     "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulplog": "^1.0.0",
     "live-server": "^1.2.1",
     "node-sass": "^4.14.1",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "reactify": "^1.1.1",
+    "rollup": "^2.26.11",
+    "rollup-plugin-babel": "^4.4.0",
+    "through2": "^4.0.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "console.pretty": "^0.1.0"
   }
 }
