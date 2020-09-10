@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: "circleci/node:lts"
+      - image: 'circleci/node:lts'
     working_directory: ~/project
     steps:
       - checkout
@@ -21,16 +21,16 @@ jobs:
             - ./node_modules
       - run:
           name: Build
-          command: npm run build:prod
+          command: npm run build
       - persist_to_workspace:
           root: /home/circleci/project
           paths:
-            - build
+            - dist
             - firebase.json
             - .firebaserc
   deploy:
     docker:
-      - image: "circleci/node:lts"
+      - image: 'circleci/node:lts'
     working_directory: ~/tmp/project
     steps:
       - attach_workspace:
