@@ -8,7 +8,7 @@ In order to run this website for development, you need to have [Node JS](https:/
 
 Once you have Node installed, open up this code base and run `npm install` on the command line / terminal inside of this directory. This should create a folder calleed _node_modules_. Node modules holds some importand, downloaded code that will help us build our website, and run it.
 
-Once `npm install` runs properly, you will need to open up two command line / terminal instances inside of this directory. On one of the terminals, run `npm run compile:sass`. This script will convert our sass files to css files which the website can view. By default, websites are unable to recognize sass, so we need to compile it to normal css. We want to use Sass because it makes developing CSS _much_ easier!
+Once `npm install` runs properly, you will need to open up two command line / terminal instances inside of this directory. On one of the terminals, run `npm run watch`. This script will convert our sass files to css files and bundle our JS files. By default, websites are unable to recognize sass, so we need to compile it to normal css. We want to use Sass because it makes developing CSS _much_ easier!
 
 In the second terminal, run `npm run dev`. This command will start up the development server at localhost:8080/. The website should open up automatically when the command is ran, and refresh automatically whenever any changes to the codebase are made.
 
