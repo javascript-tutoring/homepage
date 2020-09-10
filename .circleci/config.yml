@@ -1,0 +1,49 @@
+version: 2.1
+orbs:
+  firebase-deploy: azdevs/firebase-deploy@1.0.0
+jobs:
+  build:
+    docker:
+      - image: "circleci/node:lts"
+    working_directory: ~/project
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-npm-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: v1-yarn-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build
+          command: npm run build:prod
+      - persist_to_workspace:
+          root: /home/circleci/project
+          paths:
+            - build
+            - firebase.json
+            - .firebaserc
+  deploy:
+    docker:
+      - image: "circleci/node:lts"
+    working_directory: ~/tmp/project
+    steps:
+      - attach_workspace:
+          at: ~/tmp/project
+      - firebase-deploy/deploy:
+          token: $FIREBASE_DEPLOY_TOKEN
+workflows:
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build

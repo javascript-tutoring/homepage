@@ -4,6 +4,7 @@
   "description": "Javascript Tutoring Website",
   "main": "index.js",
   "scripts": {
+    "build": "gulp",
     "dev": "live-server src/index.html",
     "compile:sass": "node-sass src/sass/main.scss src/css/styles.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +20,11 @@
   },
   "homepage": "https://github.com/pchertude34/javascript-tutoring-website#readme",
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-sass": "^4.1.0",
     "live-server": "^1.2.1",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.1"
   }
 }
