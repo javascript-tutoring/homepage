@@ -253,3 +253,27 @@
     padding: 0 $xl-spacing;
   }
 }
+
+// ALIGNMENT
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.justify {
+  text-align: justify;
+}
+
+// HIDE on small screens
+.hidden-sm {
+  display: none;
+}
