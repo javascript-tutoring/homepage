@@ -1,5 +1,13 @@
-:root {
-  --color-primary: #a12347;
-  --color-secondary: #263454;
-  --color-tertiary: #d9dbf1;
-}
+// Colors
+$color-primary: #a12347;
+$color-secondary: #263454;
+$color-tertiary: #d9dbf1;
+
+// SCSS Variables
+// The spacing ratio for padding and margin util classes
+$default-spacing: 8rem;
+$xs-spacing: $default-spacing / 2;
+$sm-spacing: $default-spacing;
+$md-spacing: $default-spacing * 2;
+$lg-spacing: $default-spacing * 3;
+$xl-spacing: $default-spacing * 4;
