@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Madera;
+    src: url("../../assets/fonts/MaderaRegular.woff2") format(woff2);
+    font-display: swap;
+  }
 $heading-color: #a02546;
 $button-color: #0a7a5b;
 $font-weights: (
@@ -8,4 +13,8 @@ $font-weights: (
 
 .heading-primary {
 color: $heading-color;
+display: flex;
+justify-content: center;
+font-weight: map-get($font-weights, bold);
+font-family: Madera;
 }
