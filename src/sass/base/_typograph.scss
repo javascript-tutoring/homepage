@@ -1,0 +1,11 @@
+$heading-color: #a02546;
+$button-color: #0a7a5b;
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+    );
+
+.heading-primary {
+color: $heading-color;
+}
