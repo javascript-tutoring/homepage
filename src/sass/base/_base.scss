@@ -9,6 +9,10 @@
 html {
   // This defines what 1rem is
   font-size: 62.5%;
+  // Set font attributes
+  font-family: $font-family;
+  color: $dark-grey;
+  line-height: $font-height;
 }
 
 body {

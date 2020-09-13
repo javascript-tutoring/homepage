@@ -3,6 +3,17 @@ $color-primary: #a12347;
 $color-secondary: #263454;
 $color-tertiary: #d9dbf1;
 
+$dark-grey: #333447;
+$dark-gray: #333447;
+
+// FONT
+// fonts
+$font-family: 'Montserrat', Helvetica, sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-heavy: 700;
+$font-height: 1.5;
+
 // SCSS Variables
 // The spacing ratio for padding and margin util classes
 $default-spacing: 8rem;
@@ -11,3 +22,10 @@ $sm-spacing: $default-spacing;
 $md-spacing: $default-spacing * 2;
 $lg-spacing: $default-spacing * 3;
 $xl-spacing: $default-spacing * 4;
+
+// GRID Variables
+$width: 96%;
+$gutter: 4%;
+$breakpoint-small: 54rem; // 540px
+$breakpoint-med: 720rem; // 720px
+$breakpoint-large: 960rem; // 960px
