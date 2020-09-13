@@ -43,9 +43,9 @@ To make a pull request, go to https://github.com/pchertude34/javascript-tutoring
 
 After you have checked everything, click "Create pull request" and someone will review it!
 
-## BEM Model
+## BEM Model and File Structure
 
-We are using the BEM model for scss development. This helps us keep our code organized as well as avoid merge conflicts with other people's work. Merge conflicts can happen when people are working on the same file at the same time.
+We are using the BEM model for scss development, as well as a strict file structure. This helps us keep our code organized as well as avoid merge conflicts with other people's work. Merge conflicts can happen when people are working on the same file at the same time.
 
 We try to separate out our SCSS into folders:
 
@@ -61,3 +61,60 @@ We try to separate out our SCSS into folders:
   This folder contains scss sheets specific to each page. There should be a 1 to 1 ratio between files here, and pages in our website. In these sheets, we will put styles for things such as section background colors, section spacings, and anything that might differ from page to page.
 - **main.scss:**
   The **main.scss** file's purpose is only for importing other files. **_NOTE:_** If you ever create a new **.scss** file, make sure you import it here, otherwise the website won't be able to access your beautiful code! We won't put any actual scss in here. When we run our compiler, it will look at this file, grab all of the imported scss files, and convert it into one big css file that the website can use. You can see this if you look in the **dist/css/main.css** file after running `npm run build`.
+
+### BEM Classes
+
+BEM stands for Block - Element - Modifier. It is a pattern for creating css (or scss) classes. Check out this [Intro to BEM video](https://www.youtube.com/watch?v=er1JEDuPbZQ&ab_channel=DesignCourse) for a good explanation.
+
+The pattern for naming classes looks like this `.[block]__[eleemnt]--[modifier]`
+
+#### Block
+
+The "Block" is a wrapping element, say for instnace a card. We would put our wrapping styling here, like padding, borders and background colors. This class, in BEM, could be called `.card`
+
+#### Element
+
+The "Element" describes a piece of content that exists on a block. In our card instance, we might have a title. We need card specific styles for this title. For instace, maybe we want the size, and color to differ from other titles on our website. We would put those styles here and call the class `.card__title`.
+
+#### Modifier
+
+Sometimes we want different versions of our elements. Going back to the card title example, there may be a time where we want a light version of the title that can be used on dark backgrounds, and a dark version of the title that can be used on light backgrounds. We would put our color overrides in the classes `.card__title--light` and `.card__title--dark`.
+At the end of the day, our scss might look like this:
+
+```scss
+.card {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+
+  // "&" holds a copy of the wrapping class, in this case ".card" so this will evaluate to ".card__title"
+  &__title {
+    font-size: 20px;
+    margin-bottom: 8px;
+
+    // evaluates to .card__title--light
+    &--light {
+      color: white;
+    }
+
+    // evaluates to .card__title--light
+    &--dark {
+      color: black;
+    }
+  }
+}
+```
+
+and our html might look like this:
+
+```html
+<div class="card">
+  <h1 class="card__title card__title--light">This is a light card title</h1>
+</div>
+<div class="card">
+  <h1 class="card__title card__title--dark">This is a dark card title</h1>
+</div>
+```
+
+Notice how we have both `card__title` and `card__title--light` on these elements. That's because `.card__title` will hold the size, paddings, margins, etc that we still need, and `.card__title--light` will hold the color override that makes it "light" such as `color: white`.
