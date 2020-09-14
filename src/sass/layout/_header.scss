@@ -1,0 +1,58 @@
+@import 'abstracts/variables';
+
+
+.header{
+    background-color: $color-tertiary;
+    position: sticky;
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: auto;
+    text-decoration: none;
+}
+
+.logo{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logotext{
+    position: relative;
+    align-self: center;
+    left:20px;
+    font-family: $font-family;
+    font-weight: $font-weight-heavy;
+    font-size: x-large;
+    text-decoration: none;
+    color: black;
+}
+
+.header-right{
+    margin-left: auto;
+    align-self: center;
+    margin-right: 10px;
+    display: flexbox;
+}
+
+.slack{
+        align-self: center;
+        min-width: 120px;
+        height: 40px;
+        background-color: $slack-button-color;
+        border-radius: 10px;
+        border: 0;
+        font-family: $font-family;
+        font-weight: $font-weight-heavy;
+        font-size: small;
+        color: white;
+}
+
+
+.textlink{
+        font-size: large;
+        font-family: $font-family;
+        font-weight: $font-weight-regular;
+        color: black;
+        margin: 20px;
+        text-decoration: none;
+    }
